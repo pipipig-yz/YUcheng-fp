@@ -1,0 +1,127 @@
+
+.scroll-list-container {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    
+    white-space: nowrap;
+    
+}
+
+
+.scroll-list-container::before,
+.scroll-list-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 20%;
+    z-index: 1;
+    pointer-events: none;
+}
+
+
+.scroll-list-container::before {
+    left: 0;
+    background: linear-gradient(to right, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
+}
+
+
+.scroll-list-container::after {
+    right: 0;
+    background: linear-gradient(to left, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
+} 
+
+
+.scroll-list1, .scroll-list2 {
+    list-style: none;
+    padding: 0; 
+    margin: 0; 
+    display: inline-flex;
+    overflow: hidden;
+    scroll-behavior: smooth;
+    
+   
+    font-family: Roboto;
+    font-weight: 900;
+    font-size: 110px;
+    line-height: 1px; 
+    vertical-align: text-top;
+}
+
+
+.scroll-list1 li, .scroll-list2 li {
+    display: inline-block;
+    margin-left: 5px;
+    margin-right: 5px;
+    background-color: rgb(255, 255, 255);
+    color: #4CBDFF;
+    flex: 0 0 auto;
+    text-align: center;
+    vertical-align: middle;
+}
+
+
+@keyframes scroll-left-to-right {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+/*learn from chatgpt, i read it and fully understand it then i adjust by myselves.*/
+
+@keyframes scroll-right-to-left {
+    0% {
+        transform: translateX(-50%);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+.scroll-list1{
+    animation: scroll-left-to-right 25s linear infinite;
+    transform-origin: 100% 50%;
+    line-height: 0.0000001;
+}
+
+.scroll-list2{
+    animation: scroll-right-to-left 25s linear infinite;
+    transform-origin: 0% 50%;
+    line-height: 0.000001;
+}
+
+.selfie{
+    position: absolute;  
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+    z-index: 10;  
+    width: 15vw;  
+    height: auto; 
+    border-radius: 8vw;
+    border: 3px solid #4CBDFF;
+
+    transition: transform 0.1s ease-out; 
+}
+
+@media (max-width: 768px) {
+
+    
+.selfie{
+    width: 50vw;
+    border-radius: 25vw;
+}
+
+
+
+
+
+}
+
+
